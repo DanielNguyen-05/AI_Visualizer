@@ -8,6 +8,9 @@ const port = 4000;
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs"); // Đặt view engine là ejs
 
+// Thiết lập thư mục public - thư mục chứa các file tĩnh của Frontend
+app.use(express.static(path.join(__dirname, "public")));
+
 // Hàm get để lấy giao diện trang chủ
 app.get("/", (req, res) => {
   res.render("pages/home");
