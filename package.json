@@ -5,7 +5,11 @@
   "repository": "https://github.com/DanielNguyen-05/AI_Visualizer.git",
   "author": "DanielNguyen-05 <nhdang231@clc.fitus.edu.vn>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon --inspect server.js"
+  },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
