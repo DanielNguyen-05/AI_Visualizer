@@ -1,14 +1,21 @@
 const express = require("express");
+const path = require("path"); // Tiện cho deploy
+const ejs = require("ejs"); // Import EJS
 const app = express();
 const port = 4000;
 
-// hàm get để lấy ra cái giao diện (hiện đang là trang chủ)
+// Thiết lập thư mục views
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs"); // Đặt view engine là ejs
+
+// Hàm get để lấy giao diện trang chủ
 app.get("/", (req, res) => {
-  res.send("Đây là trang chủ");
+  res.render("pages/home");
 });
 
+// Hàm get cho trang giới thiệu
 app.get("/about", (req, res) => {
-  res.send("Đây là trang giới thiệu thành viên!");
+  res.render("pages/about");
 });
 
 app.listen(port, () => {

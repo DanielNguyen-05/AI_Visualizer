@@ -1,0 +1,4 @@
+1. tải yarn về máy
+2. `yarn install` để cài hết thư viện trong file package.json về
+3. Muốn chạy từ gõ `yarn start` và bật web theo linh `http://localhost:4000/`
+4. `ctrl + c` để dừng chạy
