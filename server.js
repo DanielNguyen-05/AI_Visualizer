@@ -21,8 +21,8 @@ app.get("/about", (req, res) => {
   res.render("pages/about");
 });
 
-app.get("/algorithm/searching/ucs", (req, res) => {
-  res.render("pages/ucs");
+app.get("/algorithm/pathfinding", (req, res) => {
+  res.render("pages/pathfinding");
 })
 
 app.listen(port, () => {
