@@ -21,6 +21,16 @@ app.get("/about", (req, res) => {
   res.render("pages/about");
 });
 
+// Hàm get cho trang algorithm
+app.get("/algorithms", (req, res) => {
+  res.render("pages/algorithm");
+});
+
+// Hàm get cho trang algorithms-detail
+app.get("/algorithms-detail", (req, res) => {
+  res.render("pages/algorithms-detail");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
