@@ -21,6 +21,10 @@ app.get("/about", (req, res) => {
   res.render("pages/about");
 });
 
+app.get("/algorithm/searching/ucs", (req, res) => {
+  res.render("pages/ucs");
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
