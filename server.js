@@ -21,6 +21,17 @@ app.get("/about", (req, res) => {
   res.render("pages/about");
 });
 
+// Hàm get cho trang đọc detail về searching algorithm
+app.get("/algorithm/searching", (req, res) => {
+  res.render("pages/algorithm-searching");
+});
+
+// Hàm get cho trang algorithms-menu
+app.get("/algorithm/searching/menu", (req, res) => {
+  res.render("pages/searching-menu");
+});
+
+// Hàm get cho trang pathfinding (đang fix lại)
 app.get("/algorithm/pathfinding", (req, res) => {
   res.render("pages/pathfinding");
 })
