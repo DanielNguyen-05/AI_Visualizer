@@ -31,10 +31,19 @@ app.get("/algorithm/searching/menu", (req, res) => {
   res.render("pages/searching-menu");
 });
 
+/*
 // Hàm get cho trang pathfinding (đang fix lại)
 app.get("/algorithm/pathfinding", (req, res) => {
   res.render("pages/pathfinding");
 })
+*/
+app.get("/algorithm/ida-star", (req, res) => {
+  res.render("pages/ida-star", { algorithm: "idaStar" });
+});
+
+app.get("/algorithm/ucs", (req, res) => {
+  res.render("pages/ucs", { algorithm: "uniformCostSearch" });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

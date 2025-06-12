@@ -10,6 +10,7 @@ class GridVisualizer {
         this.dragType = null;
         this.rows = 15;
         this.cols = 25;
+        this.algorithmName = document.getElementById('grid-container')?.dataset.algorithm || 'uniformCostSearch';
         
         this.initializeGrid();
         this.createGridElement();
@@ -162,7 +163,14 @@ class GridVisualizer {
         visualizeBtn.disabled = true;
 
         // Use UCS algorithm (similar to Dijkstra but focuses on path cost)
-        const visitedNodesInOrder = uniformCostSearch(this.startNode, this.targetNode, this.grid);
+        const algoFn = window.Algorithms?.[this.algorithmName];
+        if (typeof algoFn !== 'function') {
+            console.error(`Thuật toán "${this.algorithmName}" không tồn tại.`);
+            this.isRunning = false;
+            return;
+        }
+
+        const visitedNodesInOrder = algoFn(this.startNode, this.targetNode, this.grid);
         const nodesInShortestPathOrder = getNodesInShortestPathOrder(this.targetNode);
 
         await this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
