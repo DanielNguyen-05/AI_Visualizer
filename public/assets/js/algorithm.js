@@ -196,3 +196,8 @@ function generateMaze(grid, startNode, targetNode) {
         }
     }
 }
+
+window.Algorithms = {
+    idaStar,
+    uniformCostSearch,
+};

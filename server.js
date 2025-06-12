@@ -24,6 +24,30 @@ app.use((err, req, res, next) => {
     res.status(500).render('pages/error'); // Tạo file views/pages/error.ejs
 });
 
+// Hàm get cho trang đọc detail về searching algorithm
+app.get("/algorithm/searching", (req, res) => {
+  res.render("pages/algorithm-searching");
+});
+
+// Hàm get cho trang algorithms-menu
+app.get("/algorithm/searching/menu", (req, res) => {
+  res.render("pages/searching-menu");
+});
+
+/*
+// Hàm get cho trang pathfinding (đang fix lại)
+app.get("/algorithm/pathfinding", (req, res) => {
+  res.render("pages/pathfinding");
+})
+*/
+app.get("/algorithm/ida-star", (req, res) => {
+  res.render("pages/searching_algorithms/ida-star", { algorithm: "idaStar" });
+});
+
+app.get("/algorithm/ucs", (req, res) => {
+  res.render("pages/searching_algorithms/ucs", { algorithm: "uniformCostSearch" });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
