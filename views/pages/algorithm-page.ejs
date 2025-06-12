@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searching Algorithm</title>
+    <link rel="stylesheet" href="/assets/css/algorithm-page.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#977DFF" d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+            </span>
+            <span class="home-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#977DFF" d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+                </svg>
+            </span>
+        </div>
+        <div class="navbar-right">
+            <span class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#977DFF" d="M80 160c0-35.3 28.7-64 64-64l32 0c35.3 0 64 28.7 64 64l0 3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74l0 1.4c0 17.7 14.3 32 32 32s32-14.3 32-32l0-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7l0-3.6c0-70.7-57.3-128-128-128l-32 0C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg>
+            </span>
+        </div>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Menu</span>
+            <span id="close-sidebar" class="close-btn">&times;</span>
+        </div>
+        <ul class="sidebar-list" id="sidebar-main">
+            <li>
+                <a href="#" id="algorithms-link">Algorithms</a>
+                <ul class="sidebar-sublist" id="algorithms-sublist" style="display:none;">
+                    <li>
+                        <a href="#" id="searching-link" class="effect1">Searching</a>
+                        <ul class="sidebar-sublist" id="searching-sublist" style="display:none;">
+                            <li><a href="/algorithms-detail/BFS">Breadth-First Search (BFS)</a></li>
+                            <li><a href="/algorithms-detail/DFS">Depth-First Search (DFS)</a></li>
+                            <li><a href="/algorithms-detail/UCS">Uniform Cost Search (UCS)</a></li>
+                            <li><a href="/algorithms-detail/AS">A* (A-star)</a></li>
+                            <li><a href="/algorithms-detail/IDDFS">Iterative Deepening DFS (IDDFS)</a></li>
+                            <li><a href="/algorithms-detail/IDAS">Bi-Iterative Deepening A* (IDA*)</a></li>
+                            <li><a href="/algorithms-detail/Beam">Beam Search</a></li>
+                            <li><a href="/algorithms-detail/bi-direct">Bi-directional Search</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="/about">About us</a></li>
+        </ul>
+    </div>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <div class="container">
+        <h1 class="main-title">Choose your Algorithm</h1>
+        <div class="group-visualizer-video">
+            <div class="visualizer-video">
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="/public/assets/video/meo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <b>Searching Algorithm</b><br>
+                    Pathfinding on 2D grid
+                </div>                
+            </div>
+
+            <div class="visualizer-video">
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="/public/assets/video/meo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <b>Searching Algorithm</b><br>
+                    Pathfinding on 2D grid
+                </div>                
+            </div>
+
+            <div class="visualizer-video">
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="/public/assets/video/meo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <b>Searching Algorithm</b><br>
+                    Pathfinding on 2D grid
+                </div>                
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/bar.js"></script>
+</body>
+</html>
