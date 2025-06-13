@@ -1,11 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bi-Iterative Deepening A* (IDA*) Search</title>
+  <link rel="stylesheet" href="/assets/css/pathfinding.css">
+</head>
+<body>
   <div class="container">
 
     <header class="header">
-      <span class="nav-arrow">◀</span>
+      <div class="menu-icon">☰</div>
+      <div class="home-icon" onclick="window.location.href='/'">🏠</div>
       <h1 class="title">
-        <%- pageTitle %>
+        <span class="nav-arrow">◀</span>
+        Iterative Deepening A*<br>
+        (IDA*) Search
+        <span class="nav-arrow">▶</span>
       </h1>
-      <span class="nav-arrow">▶</span>
+      <div class="help-icon">?</div>
     </header>
 
     <div class="main-content">
@@ -43,4 +56,9 @@
     </div>
 
   </div>
-  <%- include('../../partials/detail-table') %>
+
+  <script src="/assets/js/algorithm.js"></script>
+  <script src="/assets/js/visualization.js"></script>
+  <script src="/assets/js/pathfinding.js"></script>
+</body>
+</html>
