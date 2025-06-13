@@ -6,6 +6,8 @@ body {
     background: linear-gradient(to bottom, #01144E, #977DFF);
     min-height: 100vh;
     color: #fff;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
 }
 
 
@@ -248,4 +250,15 @@ ul, li {
     font-size: 1.2rem;
     color: #e0e0ff;
     font-weight: 500;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
