@@ -4,6 +4,7 @@ const searchingController = require('../controllers/searchingController');
 
 router.get('/', searchingController.getSearchingPage); 
 router.get('/menu', searchingController.getSearchingMenuPage);
+
 router.get('/bfs', searchingController.getBFSPage);
 router.get('/dfs', searchingController.getDFSPage);
 router.get('/ucs', searchingController.getUCSPage);

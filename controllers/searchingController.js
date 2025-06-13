@@ -26,14 +26,14 @@ exports.getIDDFSPage = (req, res, next) => {
     res.render("pages/searching_algorithms/iddfs", { algorithm: "iterativeDependingDFS" });
 };
 
+exports.getIDAStarPage = (req, res, next) => {
+    res.render("pages/searching_algorithms/ida-star", { algorithm: "idaStar" });
+};
+
 exports.getBEAMPage = (req, res, next) => {
     res.render("pages/searching_algorithms/beam", { algorithm: "beamSearch" });
 };
 
 exports.getBIDIRECTPage = (req, res, next) => {
     res.render("pages/searching_algorithms/beam", { algorithm: "biDirectional" });
-};
-
-exports.getIDAStarPage = (req, res, next) => {
-    res.render("pages/searching_algorithms/ida-star", { algorithm: "idaStar" });
 };
