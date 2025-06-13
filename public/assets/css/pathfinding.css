@@ -22,6 +22,12 @@ body {
     gap: 1.5rem;
 }
 
+.header a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .nav-arrow {
     font-size: 2.5rem;
 }

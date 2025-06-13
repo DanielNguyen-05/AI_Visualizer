@@ -285,10 +285,3 @@ class GridVisualizer {
 document.getElementById('close-detail-table').addEventListener('click', function () {
     document.getElementById('detail-table').style.display = 'none';
 });
-
-window.addEventListener('click', function (event) {
-    const table = document.getElementById('detail-table');
-    if (event.target === table) {
-        table.style.display = 'none';
-    }
-});
