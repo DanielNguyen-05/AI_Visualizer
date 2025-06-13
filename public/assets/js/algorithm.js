@@ -198,6 +198,12 @@ function generateMaze(grid, startNode, targetNode) {
 }
 
 window.Algorithms = {
-    idaStar,
+    breadthFirstSearch,
+    depthFirstSearch,
     uniformCostSearch,
+    aStar,
+    iterativeDependingDFS,
+    beamSearch,
+    biDirectional,
+    idaStar,
 };
