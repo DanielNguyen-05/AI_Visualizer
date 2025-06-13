@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Searching Algorithm</title>
-    <link rel="stylesheet" href="/assets/css/algorithm-searching.css">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/assets/css/partial.css">
+    <% if (typeof pageCSS !== 'undefined') { %>
+    <% (Array.isArray(pageCSS) ? pageCSS : [pageCSS]).forEach(function(css) { %>
+        <link rel="stylesheet" href="<%= css %>">
+    <% }); %>
+    <% } %>
 </head>
 <body>
     <%- include("../partials/navbar.ejs") %>
 
     <main>
-        <%- content %>
+        <%- body %>
     </main>
 
     <%- include("../partials/footer.ejs") %>
-    <script src="/assets/js/algorithm-searching.js"></script>
+    <script src="/assets/js/searching.js"></script>
+    <% if (typeof pageJS !== 'undefined') { %>
+    <% (Array.isArray(pageJS) ? pageJS : [pageJS]).forEach(function(js) { %>
+        <script src="<%= js %>"></script>
+    <% }); %>
+    <% } %>
 </body>
 </html>

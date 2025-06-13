@@ -1,45 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algorithms World</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/home-page.css">
-</head>
-<body>
-    <div class="bg-animation">
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
-        <div class="floating-shape shape-3"></div>
-    </div>
+<div class="bg-animation">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+</div>
 
-    <div class="container">
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/algorithm">Algorithms</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
+<div class="container">
 
-        <main class="main-content">
-            <h1 class="greeting">Hi there!</h1>
-            <p class="welcome-message">Welcome to algorithms world</p>
-            <p class="start-prompt">Press <span class="enter-key">Enter</span> to start</p>
-        </main>
-    </div>
-
-    <script src="/assets/js/home-page.js"></script>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                document.body.classList.add('enter-pressed');
-                setTimeout(() => {
-                    window.location.href = "/algorithm"; 
-                }, 800);
-            }
-        });
-    </script>
-</body>
-</html>
+    <main class="main-content">
+        <h1 class="greeting">Hi there!</h1>
+        <p class="welcome-message">Welcome to algorithms world</p>
+        <p class="start-prompt">Press <span class="enter-key">Enter</span> to start</p>
+    </main>
+</div>

@@ -1,5 +1,3 @@
-// Visualization functions for the pathfinding algorithm
-
 class GridVisualizer {
     constructor() {
         this.grid = [];
@@ -27,7 +25,6 @@ class GridVisualizer {
             this.grid.push(currentRow);
         }
 
-        // Set start and target nodes
         this.startNode = this.grid[7][5];
         this.startNode.isStart = true;
         
@@ -134,8 +131,7 @@ class GridVisualizer {
 
     updateNodeElement(node) {
         const nodeElement = document.getElementById(`node-${node.row}-${node.col}`);
-        
-        // Reset classes
+    
         nodeElement.className = 'node';
         nodeElement.textContent = '';
         
@@ -156,13 +152,12 @@ class GridVisualizer {
         if (this.isRunning) return;
         
         this.isRunning = true;
-        this.resetGrid(false); // Don't reset walls
+        this.resetGrid(false); 
         
         const visualizeBtn = document.getElementById('visualize-btn');
         visualizeBtn.textContent = 'Running...';
         visualizeBtn.disabled = true;
 
-        // Use UCS algorithm (similar to Dijkstra but focuses on path cost)
         const algoFn = window.Algorithms?.[this.algorithmName];
         if (typeof algoFn !== 'function') {
             console.error(`Thuật toán "${this.algorithmName}" không tồn tại.`);
@@ -181,7 +176,6 @@ class GridVisualizer {
     }
 
     async animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder) {
-        // Animate visited nodes
         for (let i = 0; i < visitedNodesInOrder.length; i++) {
             if (!this.isRunning) return;
             
@@ -194,7 +188,6 @@ class GridVisualizer {
             await this.sleep(50);
         }
 
-        // Animate shortest path
         for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
             if (!this.isRunning) return;
             
@@ -216,19 +209,15 @@ class GridVisualizer {
                 const node = this.grid[row][col];
                 const nodeElement = document.getElementById(`node-${row}-${col}`);
                 
-                // Reset algorithm-related properties
                 node.reset();
                 
-                // Reset visual classes
                 nodeElement.className = 'node';
                 nodeElement.textContent = '';
                 
-                // Reset walls if requested
                 if (resetWalls && node.isWall) {
                     node.isWall = false;
                 }
                 
-                // Restore start and target
                 if (node.isStart) {
                     nodeElement.classList.add('start');
                     nodeElement.textContent = '😊';
@@ -248,7 +237,6 @@ class GridVisualizer {
         this.resetGrid();
         generateMaze(this.grid, this.startNode, this.targetNode);
         
-        // Update visual representation
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.cols; col++) {
                 this.updateNodeElement(this.grid[row][col]);
@@ -259,20 +247,28 @@ class GridVisualizer {
     showDetailedResult() {
         if (this.isRunning) return;
         
-        // Reset and run algorithm to get results
         resetGrid(this.grid);
         const visitedNodesInOrder = uniformCostSearch(this.startNode, this.targetNode, this.grid);
         const nodesInShortestPathOrder = getNodesInShortestPathOrder(this.targetNode);
         
-        let message = `Algorithm: Uniform Cost Search (UCS)\n\n`;
-        message += `Nodes explored: ${visitedNodesInOrder.length}\n`;
-        message += `Shortest path length: ${nodesInShortestPathOrder.length - 1}\n`;
-        message += `Path found: ${nodesInShortestPathOrder.length > 0 ? 'Yes' : 'No'}`;
-        
-        alert(message);
+        const html = `
+        <table style="width:100%;height:30vh;font-size:18px;">
+            <tr><td>Path found</td><td>${nodesInShortestPathOrder.length > 0 ? 'Yes' : 'No'}</td></tr>
+            <tr><td>Number of nodes explored</td><td>${visitedNodesInOrder.length}</td></tr>
+            <tr><td>Total cost</td><td>${nodesInShortestPathOrder.length > 0 ? nodesInShortestPathOrder.length - 1 : '-'}</td></tr>
+            <tr><td>Processing time</td><td>100s</td></tr>
+        </table>
+        `;
+
+        document.getElementById('detail-table-body').innerHTML = html;
+        document.getElementById('detail-table').style.display = 'block';
     }
 
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
+
+document.getElementById('close-detail-table').addEventListener('click', function () {
+    document.getElementById('detail-table').style.display = 'none';
+});

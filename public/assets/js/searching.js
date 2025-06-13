@@ -31,3 +31,7 @@ document.querySelector('.home-icon').addEventListener('click', function() {
 document.querySelector('.info-icon').addEventListener('click', function() {
     window.location.href = '/about';
 });
+
+document.querySelector('.btn-play').addEventListener('click', function() {
+    window.location.href = '/searching/menu';
+});
