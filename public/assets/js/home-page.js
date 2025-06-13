@@ -1,16 +1,3 @@
-// Keyboard interaction
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        document.body.classList.add('enter-pressed');
-        setTimeout(() => {
-            // Here you would typically navigate to the next page
-            // For demo purposes, we'll just show an alert after animation
-            alert('Welcome to the algorithms world! 🚀');
-            document.body.classList.remove('enter-pressed');
-        }, 800);
-    }
-});
-
 // Mouse movement parallax effect
 document.addEventListener('mousemove', function(e) {
     const shapes = document.querySelectorAll('.floating-shape');
