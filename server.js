@@ -1,24 +1,32 @@
 const express = require("express");
-const path = require("path"); // Tiện cho deploy
-const ejs = require("ejs"); // Import EJS
+const expressLayouts = require('express-ejs-layouts');
+const path = require("path");
 const app = express();
 const port = 4000;
+
+// Import routes
+const mainRoutes = require('./routes/mainRoutes');
+const searchingRoutes = require('./routes/searchingRoutes');
 
 // Thiết lập thư mục views
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs"); // Đặt view engine là ejs
 
+// Thiết lập layout
+app.use(expressLayouts);
+app.set('layout', 'layouts/default');
+
+
 // Thiết lập thư mục public - thư mục chứa các file tĩnh của Frontend
 app.use(express.static(path.join(__dirname, "public")));
 
-// Hàm get để lấy giao diện trang chủ
-app.get("/", (req, res) => {
-  res.render("pages/home");
-});
+// Sử dụng các Routes đã định nghĩa
+app.use('/', mainRoutes); // Gắn các route chính vào đường dẫn gốc '/'
+app.use('/searching', searchingRoutes); 
 
-// Hàm get cho trang giới thiệu
-app.get("/about", (req, res) => {
-  res.render("pages/about");
+// Xử lý lỗi chung
+app.use((err, req, res, next) => {
+    console.error(err.stack);
 });
 
 // Hàm get cho trang algorithm

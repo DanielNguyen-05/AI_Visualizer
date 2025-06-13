@@ -8,7 +8,7 @@ body {
     color: #fff;
 }
 
-/* -------------------------NAVBAR------------------------- */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -197,7 +197,7 @@ ul, li {
 /* -------------------------NAVBAR------------------------- */
 
 .container {
-    max-width: 1200px;
+    max-width: 55vw;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -210,70 +210,36 @@ ul, li {
     margin-bottom: 3rem;
 }
 
-.content {
-    display: flex;
-    gap: 48px;
-    justify-content: space-around;
-    align-items: flex-start;
+.algo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /* column-gap: 1rem; */
+    font-size: 1.5rem;
 }
 
-.description {
-    border-radius: 18px;
-    min-width: 350px;
-    max-width: 40vw;
-    /* overflow-y: scroll; */
-    position: relative;
-}
-
-.description::-webkit-scrollbar {
-    width: 8px;
-}
-
-.description::-webkit-scrollbar-track {
-    background: linear-gradient(to bottom, #977DFF, #01144E);;
-    border-radius: 8px;
-}
-
-.description::-webkit-scrollbar-thumb {
-    background: white;
-    border-radius: 8px;
-}
-
-.description h2 {
-    margin-top: 0;
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.description p {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    color: #e0e0ff;
-}
-
-.visualizer-video {
-    background: linear-gradient(to bottom, #01144E, #977DFF);
-    min-height: 60vh;
-    min-width: 350px;
-    max-width: 40vw;
-    border-radius: 1rem;
+.upper, .lower {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    max-width: 30vw;
 }
 
-.description button {
-    border: none;
-    background-color: transparent;
+.upper {
+    background: linear-gradient(to bottom, #0033FF, #977DFF);
 }
 
-.btn-play {
-    width: 60px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 24px auto 0 auto;
+.lower {
+    background: linear-gradient(to bottom, #000330, #0033FF);
+}
+
+.algo-grid a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
 }
 
 .footer {

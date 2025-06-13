@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #01144E, #977DFF);
+    min-height: 100vh;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.content {
+    display: flex;
+    gap: 48px;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.description {
+    border-radius: 18px;
+    min-width: 350px;
+    max-width: 40vw;
+    /* overflow-y: scroll; */
+    position: relative;
+}
+
+.description::-webkit-scrollbar {
+    width: 8px;
+}
+
+.description::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, #977DFF, #01144E);;
+    border-radius: 8px;
+}
+
+.description::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 8px;
+}
+
+.description h2 {
+    margin-top: 0;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.description p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #e0e0ff;
+}
+
+.visualizer-video {
+    background: linear-gradient(to bottom, #01144E, #977DFF);
+    min-height: 60vh;
+    min-width: 350px;
+    max-width: 40vw;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description button {
+    border: none;
+    background-color: transparent;
+}
+
+.btn-play {
+    width: 60px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px auto 0 auto;
+    cursor: pointer;
+    transition: width 2s, height 2s;
+}
+
+.btn-play:hover {
+    width: 65px;
+    height: autp;
+}

@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #01144E, #977DFF);
+    min-height: 100vh;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-arrow {
+    font-size: 2.5rem;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.left-panel, .right-panel {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.algorithm-section h2, .guide-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.description p {
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.center-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.grid-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    gap: 1px;
+    background: #ddd;
+    border: 2px solid #999;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.node {
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.node:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.node.start {
+    background: #4CAF50;
+    font-size: 14px;
+}
+
+.node.target {
+    background: #FF9800;
+    font-size: 14px;
+}
+
+.node.wall {
+    background: #333;
+    cursor: not-allowed;
+}
+
+.node.visited {
+    background: #E3F2FD;
+    animation: visitedAnimation 0.5s ease-out;
+}
+
+.node.path {
+    background: #FFEB3B;
+    animation: pathAnimation 0.5s ease-out;
+}
+
+.node.current {
+    background: #F44336;
+    animation: pulse 1s infinite;
+}
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(0.3);
+        background-color: #64B5F6;
+    }
+    50% {
+        background-color: #2196F3;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #E3F2FD;
+    }
+}
+
+@keyframes pathAnimation {
+    0% {
+        transform: scale(0.6);
+        background-color: #FF6F00;
+    }
+    50% {
+        transform: scale(1.2);
+        background-color: #FFD600;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #FFEB3B;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.guide-content {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.legend {
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.legend-color.start {
+    background: #4CAF50;
+}
+
+.legend-color.target {
+    background: #FF9800;
+}
+
+.legend-color.wall {
+    background: #333;
+}
+
+.legend-color.visited {
+    background: #E3F2FD;
+}
+
+.legend-color.path {
+    background: #FFEB3B;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .left-panel, .right-panel {
+        order: 2;
+    }
+    
+    .center-panel {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+    }
+    
+    .node {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* table styles */
+.table {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0; top: 0; width: 100%; height: 100%;
+  overflow: auto; 
+  background: rgba(0,0,0,0.4);
+}
+
+.table-content {
+  background: linear-gradient(to bottom,#977DFF, #F2E6EE);
+  margin: 8% auto;
+  padding: 32px 40px;
+  border-radius: 18px;
+  width: 400px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  position: relative;
+  text-align: center;
+  color: #1808B0;
+}
+
+.close-icon {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+#detail-table-body {
+  margin-top: 18px;
+  font-size: 18px;
+  text-align: left;
+}

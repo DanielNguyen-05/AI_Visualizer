@@ -236,16 +236,25 @@ ul, li {
     background: linear-gradient(to bottom, #000330, #0033FF);
 }
 
-.algo-grid a {
-    text-decoration: none;
-    color: white;
-    text-align: center;
+/*Visualizer video*/
+.group-visualizer-video {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
-.footer {
+.visualizer-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-top: 48px;
-    font-size: 1.2rem;
-    color: #e0e0ff;
-    font-weight: 500;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.video-info {
+    text-align: center;
 }
