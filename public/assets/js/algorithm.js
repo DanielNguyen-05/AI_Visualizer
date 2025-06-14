@@ -93,7 +93,6 @@ function uniformCostSearch(startNode, targetNode, grid) {
     return visitedNodesInOrder;
 }
 
-// IDA* algorithm implementation
 function idaStar(startNode, targetNode, grid) {
     let threshold = heuristic(startNode, targetNode);
     const visitedNodesInOrder = [];
@@ -149,7 +148,6 @@ function idaStarSearch(node, targetNode, gCost, threshold, grid, visitedNodesInO
     return { found: false, threshold: minThreshold };
 }
 
-// Get shortest path by backtracking from target to start
 function getNodesInShortestPathOrder(targetNode) {
     const nodesInShortestPathOrder = [];
     let currentNode = targetNode;

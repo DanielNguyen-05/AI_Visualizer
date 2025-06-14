@@ -1,53 +1,11 @@
 // Main application entry point
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the grid visualizer
     const gridVisualizer = new GridVisualizer();
-    
-    // Add some additional UI enhancements
+
     setupUIEnhancements();
-    
-    // Add keyboard shortcuts
     setupKeyboardShortcuts(gridVisualizer);
-    
-    // Add responsive behavior
     setupResponsiveBehavior();
 });
-
-function setupUIEnhancements() {
-    // Add hover effects to navigation elements
-    const navElements = document.querySelectorAll('.menu-icon, .home-icon, .help-icon, .nav-arrow');
-    navElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            element.style.transform = 'scale(1.1)';
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            element.style.transform = 'scale(1)';
-        });
-    });
-    
-    // Add click handlers for navigation
-    document.querySelector('.home-icon').addEventListener('click', () => {
-        window.location.reload();
-    });
-    
-    document.querySelector('.help-icon').addEventListener('click', () => {
-        showHelpDialog();
-    });
-    
-    // Add loading animation to buttons
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (!this.disabled) {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-            }
-        });
-    });
-}
 
 function setupKeyboardShortcuts(gridVisualizer) {
     document.addEventListener('keydown', (e) => {
@@ -81,9 +39,7 @@ function setupKeyboardShortcuts(gridVisualizer) {
 }
 
 function setupResponsiveBehavior() {
-    // Handle window resize
     window.addEventListener('resize', () => {
-        // Adjust grid size on mobile
         const grid = document.querySelector('.grid');
         if (grid && window.innerWidth < 768) {
             grid.style.transform = 'scale(0.8)';
@@ -92,7 +48,6 @@ function setupResponsiveBehavior() {
         }
     });
     
-    // Initial check
     if (window.innerWidth < 768) {
         const grid = document.querySelector('.grid');
         if (grid) {
@@ -134,7 +89,6 @@ IDA* combines iterative deepening with A* heuristics for memory-efficient pathfi
     alert(helpContent);
 }
 
-// Utility functions for algorithm performance monitoring
 function measureAlgorithmPerformance(algorithmFunction, ...args) {
     const startTime = performance.now();
     const result = algorithmFunction(...args);

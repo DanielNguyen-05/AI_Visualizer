@@ -17,7 +17,7 @@ exports.getUCSPage = (req, res, next) => {
         pageTitle: 'Unifrom Cost Search (UCS)',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
-        algorithm: "ucs",
+        algorithm: "uniformCostSearch"
     });
 }
 
@@ -35,7 +35,8 @@ exports.getDFSPage = (req, res, next) => {
         pageTitle: 'Depth First Search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
-        algorithm: "depthFirstSearch" });
+        algorithm: "depthFirstSearch" 
+    });
 }
 
 exports.getAStarPage = (req, res, next) => {
@@ -43,7 +44,8 @@ exports.getAStarPage = (req, res, next) => {
         pageTitle: 'A* Search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
-        algorithm: "aStar" });
+        algorithm: "aStar" 
+    });
 };
 
 exports.getIDDFSPage = (req, res, next) => {
@@ -51,7 +53,8 @@ exports.getIDDFSPage = (req, res, next) => {
         pageTitle: 'Iterative Deepening DFS',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
-        algorithm: "iterativeDependingDFS" });
+        algorithm: "iterativeDependingDFS" 
+    })
 };
 
 exports.getIDAStarPage = (req, res, next) => {
@@ -59,7 +62,7 @@ exports.getIDAStarPage = (req, res, next) => {
         pageTitle: 'Iterative Deepening A* (IDA*) Search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
-        algorithm: "ida-star",
+        algorithm: "idaStar"
     });
 };
 
@@ -68,14 +71,15 @@ exports.getBEAMPage = (req, res, next) => {
         pageTitle: 'Beam Search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
-        algorithm: "beamSearch" });
+        algorithm: "beamSearch" 
+    });
 };
 
 exports.getBIDIRECTPage = (req, res, next) => {
     res.render("pages/searching_algorithms/beam", { 
-        algorithm: "biDirectional",
         pageTitle: 'Bi-directional Search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
-     });
+        algorithm: "biDirectional"
+    });
 };

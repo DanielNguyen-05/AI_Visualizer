@@ -13,22 +13,13 @@ document.addEventListener('mousemove', function(e) {
 });
 
 // Add subtle glow effect on hover for navigation links
-// const navLinks = document.querySelectorAll('.nav-links a');
-// navLinks.forEach(link => {
-//     link.addEventListener('mouseenter', function() {
-//         this.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
-//     });
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+    link.addEventListener('mouseenter', function() {
+        this.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+    });
     
-//     link.addEventListener('mouseleave', function() {
-//         this.style.textShadow = 'none';
-//     });
-// });
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        document.body.classList.add('enter-pressed');
-        setTimeout(() => {
-            window.location.href = "/algorithm"; 
-        }, 800);
-    }
+    link.addEventListener('mouseleave', function() {
+        this.style.textShadow = 'none';
+    });
 });
