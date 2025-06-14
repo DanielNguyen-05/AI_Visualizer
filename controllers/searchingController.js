@@ -23,7 +23,7 @@ exports.getUCSPage = (req, res, next) => {
 
 exports.getBFSPage = (req, res, next) => {
     res.render("pages/searching_algorithms/bfs", { 
-        pageTitle: 'Bread First Search',
+        pageTitle: 'Breadth-first search (BFS)',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         algorithm: "breadthFirstSearch" 
@@ -32,7 +32,7 @@ exports.getBFSPage = (req, res, next) => {
 
 exports.getDFSPage = (req, res, next) => {
     res.render("pages/searching_algorithms/dfs", { 
-        pageTitle: 'Depth First Search',
+        pageTitle: 'Depth-first search (DFS)',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         algorithm: "depthFirstSearch" 
@@ -41,7 +41,7 @@ exports.getDFSPage = (req, res, next) => {
 
 exports.getAStarPage = (req, res, next) => {
     res.render("pages/searching_algorithms/a-star", { 
-        pageTitle: 'A* Search',
+        pageTitle: 'A* search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         algorithm: "aStar" 
@@ -50,7 +50,7 @@ exports.getAStarPage = (req, res, next) => {
 
 exports.getIDDFSPage = (req, res, next) => {
     res.render("pages/searching_algorithms/iddfs", { 
-        pageTitle: 'Iterative Deepening DFS',
+        pageTitle: 'Iterative deepening depth-first search (IDDFS)',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         algorithm: "iterativeDependingDFS" 
@@ -59,7 +59,7 @@ exports.getIDDFSPage = (req, res, next) => {
 
 exports.getIDAStarPage = (req, res, next) => {
     res.render("pages/searching_algorithms/ida-star", { 
-        pageTitle: 'Iterative Deepening A* (IDA*) Search',
+        pageTitle: 'Iterative deepening A* search (IDA*)',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         algorithm: "idaStar"
@@ -68,7 +68,7 @@ exports.getIDAStarPage = (req, res, next) => {
 
 exports.getBEAMPage = (req, res, next) => {
     res.render("pages/searching_algorithms/beam", { 
-        pageTitle: 'Beam Search',
+        pageTitle: 'Beam search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         algorithm: "beamSearch" 
@@ -77,7 +77,7 @@ exports.getBEAMPage = (req, res, next) => {
 
 exports.getBIDIRECTPage = (req, res, next) => {
     res.render("pages/searching_algorithms/beam", { 
-        pageTitle: 'Bi-directional Search',
+        pageTitle: 'Bi-directional search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         algorithm: "biDirectional"
