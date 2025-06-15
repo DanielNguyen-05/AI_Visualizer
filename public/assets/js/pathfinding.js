@@ -1,41 +1,8 @@
 // Main application entry point
 document.addEventListener('DOMContentLoaded', function() {
     const gridVisualizer = new GridVisualizer();
-
-    setupKeyboardShortcuts(gridVisualizer);
     setupResponsiveBehavior();
 });
-
-function setupKeyboardShortcuts(gridVisualizer) {
-    document.addEventListener('keydown', (e) => {
-        if (gridVisualizer.isRunning) return;
-        
-        switch(e.key.toLowerCase()) {
-            case ' ':
-            case 'enter':
-                e.preventDefault();
-                gridVisualizer.visualizeAlgorithm();
-                break;
-            case 'r':
-                e.preventDefault();
-                gridVisualizer.resetGrid();
-                break;
-            case 'g':
-                e.preventDefault();
-                gridVisualizer.generateMaze();
-                break;
-            case 'd':
-                e.preventDefault();
-                gridVisualizer.showDetailedResult();
-                break;
-            case 'escape':
-                if (gridVisualizer.isRunning) {
-                    gridVisualizer.isRunning = false;
-                }
-                break;
-        }
-    });
-}
 
 function setupResponsiveBehavior() {
     window.addEventListener('resize', () => {
