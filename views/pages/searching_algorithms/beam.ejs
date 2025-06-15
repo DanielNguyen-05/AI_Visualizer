@@ -1,0 +1,49 @@
+<div class="container">
+  <a href="/searching/menu" class="backMenu">
+    <svg id="return-back-redo-arrow" style="enable-background:new 0 0 15.207 10.854;" version="1.1" viewBox="0 0 15.207 10.854" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M11.707,0h-4v1h4c1.378,0,2.5,1.122,2.5,2.5S13.085,6,11.707,6H1.914l3.146-3.146L4.354,2.146L0,6.5l4.354,4.354  l0.707-0.707L1.914,7h9.793c1.93,0,3.5-1.57,3.5-3.5S13.637,0,11.707,0z"/></svg>
+    <span>Back to Menu</span>
+  </a>
+
+  <header class="header">
+    <a href="/searching/ida-star" class="nav-arrow">◀</a>
+    <h1 class="title">
+      <%- pageTitle %>
+    </h1>
+    <a class="nav-arrow" >▶</a>
+  </header>
+
+  <div class="main-content">
+    <div class="left-panel">
+      <div class="algorithm-section">
+        <h2>Algorithm idea</h2>
+        <div class="description">
+          <p>IDA* (Iterative Deepening A*) combines the space efficiency of iterative deepening with the optimality of A*. It performs depth-first search with successively increased cost thresholds.</p>
+          <p>The algorithm uses an admissible heuristic function to guide the search and guarantees finding the optimal path while using minimal memory.</p>
+          <p>Bi-directional IDA* runs the search simultaneously from both start and goal nodes, potentially reducing the search space significantly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="center-panel">
+      <!-- Nhúng grid từ partials -->
+      <%- include('../../partials/grid', {algorithm: "beamSearch"}) %>
+    </div>
+
+    <div class="right-panel">
+      <div class="guide-section">
+        <h2>Guide</h2>
+        <div class="guide-content">
+          <p>Drag the START(😊) and TARGET(🏠) icons to change their positions, and click on the blank nodes to add Walls.</p>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-color start"></div><span>Start Node</span></div>
+            <div class="legend-item"><div class="legend-color target"></div><span>Target Node</span></div>
+            <div class="legend-item"><div class="legend-color wall"></div><span>Wall</span></div>
+            <div class="legend-item"><div class="legend-color visited"></div><span>Visited</span></div>
+            <div class="legend-item"><div class="legend-color path"></div><span>Shortest Path</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../../partials/detail-table') %>
