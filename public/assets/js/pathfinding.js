@@ -55,39 +55,6 @@ function setupResponsiveBehavior() {
     }
 }
 
-function showHelpDialog() {
-    const helpContent = `
-🎯 Bi-Iterative Deepening A* (IDA*) Pathfinding Visualizer
-
-📖 How to use:
-• Click and drag 😊 (Start) and 🏠 (Target) to move them
-• Click on empty cells to create/remove walls
-• Press "Generate Map" to create a random maze
-• Press "Start Visualize" to run the algorithm
-• Press "Reset" to clear the visualization
-• Press "Detailed Result" to see algorithm statistics
-
-⌨️ Keyboard Shortcuts:
-• Space/Enter: Start visualization
-• R: Reset grid
-• G: Generate maze
-• D: Show detailed results
-• Escape: Stop running algorithm
-
-🔍 Algorithm Info:
-IDA* combines iterative deepening with A* heuristics for memory-efficient pathfinding. This implementation uses Uniform Cost Search (UCS) which guarantees the shortest path by exploring nodes in order of their cost from the start.
-
-🎨 Legend:
-• Green (😊): Start node
-• Orange (🏠): Target node  
-• Black: Walls/obstacles
-• Light Blue: Visited nodes
-• Yellow: Shortest path
-    `;
-    
-    alert(helpContent);
-}
-
 function measureAlgorithmPerformance(algorithmFunction, ...args) {
     const startTime = performance.now();
     const result = algorithmFunction(...args);

@@ -159,20 +159,14 @@ class GridVisualizer {
         visualizeBtn.disabled = true;
 
         const algoFn = window.Algorithms?.[this.algorithmName];
-        if (typeof algoFn !== 'function') {
-            console.error(`Thuật toán "${this.algorithmName}" không tồn tại.`);
-            this.isRunning = false;
-            return;
-        }
-
         const visitedNodesInOrder = algoFn(this.startNode, this.targetNode, this.grid);
         const nodesInShortestPathOrder = getNodesInShortestPathOrder(this.targetNode);
 
         await this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
         
         this.isRunning = false;
-        visualizeBtn.textContent = '▶ Start Visualize';
-        visualizeBtn.disabled = false;
+        visualizeBtn.textContent = 'Finished';
+        visualizeBtn.disabled = true;
     }
 
     async animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder) {
@@ -202,6 +196,10 @@ class GridVisualizer {
     }
 
     resetGrid(resetWalls = true) {
+        const visualizeBtn = document.getElementById('visualize-btn');
+        visualizeBtn.disabled = false;
+        visualizeBtn.textContent = '▶ Start Visualize';
+
         if (this.isRunning) return;
         
         for (let row = 0; row < this.rows; row++) {
