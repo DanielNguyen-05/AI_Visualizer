@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #01144E, #977DFF);
     min-height: 100vh;
     color: #fff;
@@ -272,6 +272,10 @@ ul, li {
     aspect-ratio: 3 / 2;
 }
 
+.video-container:hover{
+    animation: lightItUp 0.8s infinite;
+}
+
 .video-container video {
     width: 100%;
     height: 100%;
@@ -281,7 +285,12 @@ ul, li {
 
 .video-info {
     padding-top: 2rem;
+    font-size: larger;
     text-align: center;
+}
+
+.footer {
+    display: none;
 }
 
 @keyframes fadeInUp {
@@ -293,4 +302,12 @@ ul, li {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes lightItUp {
+  0%, 100% {
+    opacity: 1;
+    color:#dfd9f8;
+    box-shadow: 0 0 5px #fff, 0 0 10px #977DFF, 0 0 15px #977DFF;
+  }
 }

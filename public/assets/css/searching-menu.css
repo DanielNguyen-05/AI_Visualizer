@@ -235,7 +235,11 @@ ul, li {
 }
 
 .lower {
-    background: linear-gradient(to bottom, #000330, #0033FF);
+    background: linear-gradient(to bottom, #7738ca, #0033FF);
+}
+
+.upper:hover, .lower:hover{
+    animation: lightItUp 0.8s infinite;
 }
 
 .algo-grid a {
@@ -261,4 +265,12 @@ ul, li {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes lightItUp {
+  0%, 100% {
+    opacity: 1;
+    color:#dfd9f8;
+    box-shadow: 0 0 5px #fff, 0 0 10px #977DFF, 0 0 15px #977DFF;
+  }
 }
