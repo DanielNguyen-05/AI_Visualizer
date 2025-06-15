@@ -14,16 +14,35 @@
 }
 
 .menu-icon, .home-icon, .info-icon {
-    background: rgba(255,255,255,0.08);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
     cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-icon:hover, .home-icon:hover, .info-icon:hover {
+    background: rgba(151, 125, 255, 0.2);
+    box-shadow: 0 0 15px rgba(151, 125, 255, 0.5);
+}
+
+.menu-icon:hover svg path, .home-icon:hover svg path, .info-icon:hover svg path {
+    fill: #fff;
+    filter: drop-shadow(0 0 8px rgba(226, 219, 255, 0.8));
+}
+
+.menu-icon svg, .home-icon svg, .info-icon svg {
+    transition: all 0.3s ease;
 }
 
 .menu-icon:hover svg, .home-icon:hover svg, .info-icon:hover svg {
-    filter: brightness(0) invert(1);
+    transform: scale(1.1);
+}
+
+.menu-icon:active svg, .home-icon:active svg, .info-icon:active svg {
+    transform: scale(0.9);
 }
 
 .home-icon {
@@ -38,8 +57,8 @@
 }
 
 .info-icon {
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     font-weight: bold;
 }
 
@@ -47,13 +66,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 320px;
+    width: 380px;
     height: 100vh;
     background-color: #977DFF;
     box-shadow: 2px 0 24px rgba(0,0,0,0.18);
     z-index: 1001;
     transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+    transition: transform 0.4s ease;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -78,10 +97,22 @@
 }
 
 .close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
     font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
     color: #fff;
     margin-left: 1rem;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
 }
 
 .sidebar-list {
@@ -91,13 +122,13 @@
 
 .sidebar-sublist {
     color: #F1EAF8;
-    background: linear-gradient(to right, #977DFF, #01144E);
     padding-left: 1.2rem;
     display: none;
     transition: all 0.2s;
 }
 
-.effect1:active {
+.effect1:hover {
+    display: block;
     background: linear-gradient(to right, #977DFF, #5B4B99);
 }
 
@@ -115,11 +146,13 @@ ul, li {
     color: #fff;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.2s;
+    font-weight: 500;
+    transition: all 0.4s ease;
 }
 
-.sidebar-list a:hover {
-    color: #FFD1E2;
+.sidebar-list .sidebar-sublist .sidebar-sublist a:hover {
+    display: block;
+    background: linear-gradient(to right, #977DFF, #feb0cc);
 }
 
 .sidebar-overlay {
@@ -132,6 +165,7 @@ ul, li {
 
 .sidebar-overlay.active {
     display: block;
+    backdrop-filter: blur(4px);
 }
 
 /* Cấp 1: Algorithms, About us */
@@ -146,8 +180,7 @@ ul, li {
 }
 
 /* Cấp 2: Searching */
-.sidebar-sublist > li > a#searching-link {
-    color: #F1EAF8;
+.sidebar-sublist > li > a.sidebar-sublink {
     font-size: 1.15rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
@@ -157,7 +190,6 @@ ul, li {
 
 /* Cấp 3: Các thuật toán */
 .sidebar-sublist > li > ul.sidebar-sublist > li > a {
-    color: #e0e0ff;
     font-size: 1.05rem;
     font-weight: 400;
     margin-bottom: 0.3rem;
@@ -167,7 +199,7 @@ ul, li {
 
 .sidebar-list a:hover,
 .sidebar-sublist a:hover {
-    color: #FFD1E2;
+    padding-left: 2rem;
 }
 
 .sidebar-sublist ul.sidebar-sublist {

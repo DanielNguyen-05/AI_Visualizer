@@ -16,6 +16,11 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set('layout', 'layouts/default');
 
+// Thiết lập layout
+app.use(expressLayouts);
+app.set('layout', 'layouts/default');
+
+
 // Thiết lập thư mục public - thư mục chứa các file tĩnh của Frontend
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -26,6 +31,16 @@ app.use('/searching', searchingRoutes);
 // Xử lý lỗi chung
 app.use((err, req, res, next) => {
     console.error(err.stack);
+});
+
+// Hàm get cho trang algorithm
+app.get("/algorithms", (req, res) => {
+  res.render("pages/algorithm");
+});
+
+// Hàm get cho trang algorithms-detail
+app.get("/algorithms-detail", (req, res) => {
+  res.render("pages/algorithms-detail");
 });
 
 app.listen(port, () => {

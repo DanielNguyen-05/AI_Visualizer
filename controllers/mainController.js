@@ -1,8 +1,6 @@
 exports.getHomePage = (req, res, next) => {
     res.render("pages/home", {
-        pageTitle: 'Algorithms World',
-        pageCSS: '/assets/css/home-page.css',
-        pageJS: '/assets/js/home-page.js',
+        layout: false,
     });
 };
 

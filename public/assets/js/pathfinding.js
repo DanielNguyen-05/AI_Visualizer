@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const gridVisualizer = new GridVisualizer();
 
-    setupUIEnhancements();
     setupKeyboardShortcuts(gridVisualizer);
     setupResponsiveBehavior();
 });
