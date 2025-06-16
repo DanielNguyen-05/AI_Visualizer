@@ -5,6 +5,7 @@ class GridVisualizer {
         this.targetNode = null;
         this.isRunning = false;
         this.isDragging = false;
+        this.isMouseDown = false;
         this.dragType = null;
         this.rows = 15;
         this.cols = 25;
@@ -67,38 +68,41 @@ class GridVisualizer {
         nodeElement.addEventListener('mousedown', (e) => {
             e.preventDefault();
             if (this.isRunning) return;
-            
+
+            this.isMouseDown = true;
+
             if (node.isStart) {
                 this.isDragging = true;
                 this.dragType = 'start';
             } else if (node.isTarget) {
                 this.isDragging = true;
                 this.dragType = 'target';
-            } else if (!node.isWall) {
-                node.isWall = true;
-                this.updateNodeElement(node);
             } else {
-                node.isWall = false;
+                node.isWall = !node.isWall;
                 this.updateNodeElement(node);
             }
         });
 
         nodeElement.addEventListener('mouseenter', () => {
             if (this.isRunning) return;
-            
+
             if (this.isDragging && this.dragType === 'start' && !node.isTarget && !node.isWall) {
                 this.startNode.isStart = false;
                 this.updateNodeElement(this.startNode);
-                
+
                 this.startNode = node;
                 node.isStart = true;
                 this.updateNodeElement(node);
             } else if (this.isDragging && this.dragType === 'target' && !node.isStart && !node.isWall) {
                 this.targetNode.isTarget = false;
                 this.updateNodeElement(this.targetNode);
-                
+
                 this.targetNode = node;
                 node.isTarget = true;
+                this.updateNodeElement(node);
+            } else if (this.isMouseDown && !node.isStart && !node.isTarget) {
+                if(!node.isWall) node.isWall = true;
+                else node.isWall = false;
                 this.updateNodeElement(node);
             }
         });
@@ -106,6 +110,7 @@ class GridVisualizer {
 
     setupEventListeners() {
         document.addEventListener('mouseup', () => {
+            this.isMouseDown = false;
             this.isDragging = false;
             this.dragType = null;
         });
@@ -246,12 +251,14 @@ class GridVisualizer {
         if (this.isRunning) return;
         
         resetGrid(this.grid);
-        const visitedNodesInOrder = uniformCostSearch(this.startNode, this.targetNode, this.grid);
+
+        const algoFn = window.Algorithms?.[this.algorithmName];
+        const visitedNodesInOrder = algoFn(this.startNode, this.targetNode, this.grid);
         const nodesInShortestPathOrder = getNodesInShortestPathOrder(this.targetNode);
         
         const html = `
         <table style="width:100%;height:30vh;font-size:18px;">
-            <tr><td>Path found</td><td>${nodesInShortestPathOrder.length > 0 ? 'Yes' : 'No'}</td></tr>
+            <tr><td>Path found</td><td>${nodesInShortestPathOrder.length > 1 ? 'Yes' : 'No'}</td></tr>
             <tr><td>Number of nodes explored</td><td>${visitedNodesInOrder.length}</td></tr>
             <tr><td>Total cost</td><td>${nodesInShortestPathOrder.length > 0 ? nodesInShortestPathOrder.length - 1 : '-'}</td></tr>
             <tr><td>Processing time</td><td>100s</td></tr>
