@@ -70,5 +70,4 @@ function measureAlgorithmPerformance(algorithmFunction, ...args) {
 // Export for potential use in other modules
 window.GridVisualizerApp = {
     measureAlgorithmPerformance,
-    showHelpDialog
 };

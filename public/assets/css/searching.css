@@ -112,12 +112,15 @@ body {
     justify-content: center;
     margin: 24px auto 0 auto;
     cursor: pointer;
-    /* transition: width 2s, height 2s; */
+    transition: all 0.3s ease;
 }
 
 .btn-play:hover {
-    width: 65px;
-    height: auto;
+    transform: scale(1.1);
+}
+
+.btn-play:active {
+    transform: scale(0.9);
 }
 
 .video-container {

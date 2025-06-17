@@ -76,10 +76,18 @@ exports.getBEAMPage = (req, res, next) => {
 };
 
 exports.getBIDIRECTPage = (req, res, next) => {
-    res.render("pages/searching_algorithms/beam", { 
+    res.render("pages/searching_algorithms/bi-direct", { 
         pageTitle: 'Bi-directional search',
         pageCSS: '/assets/css/pathfinding.css',
         pageJS: ['/assets/js/algorithm.js', '/assets/js/visualization.js', '/assets/js/pathfinding.js'],
         // algorithm: "biDirectional"
+    });
+};
+
+exports.getComparePage = (req, res) => {
+    res.render('pages/searching-compare', {
+        pageTitle: 'Searching Algorithm Comparison',
+        pageCSS: '/assets/css/searching-compare.css',
+        pageJS: ['/assets/js/searching-compare.js', 'https://cdn.jsdelivr.net/npm/chart.js'],
     });
 };

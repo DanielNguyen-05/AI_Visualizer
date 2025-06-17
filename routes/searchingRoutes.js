@@ -14,6 +14,8 @@ router.get('/ida-star', searchingController.getIDAStarPage);
 router.get('/beam', searchingController.getBEAMPage);
 router.get('/bi-direct', searchingController.getBIDIRECTPage);
 
+router.get('/compare', searchingController.getComparePage);
+
 
 
 module.exports = router;

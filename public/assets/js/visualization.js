@@ -127,6 +127,10 @@ class GridVisualizer {
         document.getElementById('detailed-btn').addEventListener('click', () => {
             this.showDetailedResult();
         });
+
+        document.getElementById('compare-searching-algo').addEventListener('click', () => {
+            this.compareResults();
+        });
     }
 
     updateNodeElement(node) {
@@ -261,6 +265,33 @@ class GridVisualizer {
         document.getElementById('detail-table-body').innerHTML = html;
         document.getElementById('detail-table').style.display = 'block';
     }
+
+    compareResults() {
+        if (this.isRunning) return;
+        // console.log(this.grid);
+
+        const algorithms = ['uniformCostSearch', 'idaStar'/*, 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch'*/];
+        const results = algorithms.map(algo => {
+            console.log(window.Algorithms[algo]);
+            const result = window.GridVisualizerApp.measureAlgorithmPerformance(
+                window.Algorithms[algo], this.startNode, this.targetNode, this.grid
+            );
+            console.log(result);
+            const path = getNodesInShortestPathOrder(this.targetNode);
+            return (
+                {
+                    pathFound: path.length > 0 ? "Yes" : "No",
+                    nodesExplored: result.nodesExplored,
+                    totalCost: path.length > 0 ? path.length - 1 : '-',
+                    processingTime: `${result.executionTime.toFixed(2)}`, //ms
+                }
+            );
+        });
+
+        sessionStorage.setItem('compareResults-Searching', JSON.stringify(results));
+        // console.log(sessionStorage.getItem('compareResults-Searching'));
+        window.location.href = '/searching/compare';
+    } 
 
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));

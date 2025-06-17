@@ -1,11 +1,14 @@
 <div class="container">
+  <%- include('../../partials/back-to-btn', {
+    backHref: '/searching/menu',
+  }) %>
 
   <header class="header">
-    <span class="nav-arrow">◀</span>
+    <a href="/searching/a-star" class="nav-arrow">◀</a>
     <h1 class="title">
       <%- pageTitle %>
     </h1>
-    <span class="nav-arrow">▶</span>
+    <a href="/searching/bfs" class="nav-arrow" >▶</a>
   </header>
 
   <div class="main-content">
@@ -22,7 +25,7 @@
 
     <div class="center-panel">
       <!-- Nhúng grid từ partials -->
-      <%- include('../../partials/grid', { algorithm: 'idaStar' }) %>
+      <%- include('../../partials/grid', {algorithm: "idaStar"}) %>
     </div>
 
     <div class="right-panel">
@@ -41,6 +44,5 @@
       </div>
     </div>
   </div>
-
 </div>
 <%- include('../../partials/detail-table') %>

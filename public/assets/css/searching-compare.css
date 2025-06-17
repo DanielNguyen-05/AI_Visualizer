@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #01144E, #977DFF);
+}
+
+.grid-chart {
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 85vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.chart-wrapper {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(123, 123, 123, 0.274);
+}
+
+.chart-wrapper:hover {
+    transform: translateY(4px);
+    box-shadow: 0 12px 48px rgba(226, 209, 226, 0.718);
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+canvas {
+    background-color: #fff;
+    width: 100% !important;
+    height: 300px !important;
+}
+
+@media (max-width: 700px) {
+    .grid-chart {
+        grid-template-columns: 1fr;
+    }
+}

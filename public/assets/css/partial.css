@@ -28,6 +28,11 @@
     box-shadow: 0 0 15px rgba(151, 125, 255, 0.5);
 }
 
+.info-icon:hover {
+    border: 3px solid #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
 .menu-icon:hover svg path, .home-icon:hover svg path, .info-icon:hover svg path {
     fill: #fff;
     filter: drop-shadow(0 0 8px rgba(226, 219, 255, 0.8));
@@ -57,9 +62,16 @@
 }
 
 .info-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     font-weight: bold;
+    border: 3px solid #977DFF;
+    border-radius: 50%;
+}
+
+.info-icon svg {
+    width: 1.8rem;
+    height: 1.8rem;
 }
 
 .sidebar {
