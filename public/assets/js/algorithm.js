@@ -93,6 +93,7 @@ function uniformCostSearch(startNode, targetNode, grid) {
     return visitedNodesInOrder;
 }
 
+// Iterative Deepening A-Star
 function idaStar(startNode, targetNode, grid) {
     let threshold = heuristic(startNode, targetNode);
     const visitedNodesInOrder = [];
@@ -148,6 +149,64 @@ function idaStarSearch(node, targetNode, gCost, threshold, grid, visitedNodesInO
     return { found: false, threshold: minThreshold };
 }
 
+// Breadth-First Search (BFS) algorithm
+function breadthFirstSearch(startNode, targetNode, grid) {
+    const visitedNodesInOrder = [];
+    const queue = [startNode];
+    startNode.isVisited = true;
+
+    while (queue.length > 0) {
+        const currentNode = queue.shift();
+        visitedNodesInOrder.push(currentNode);
+
+        if (currentNode === targetNode) {
+            return visitedNodesInOrder;
+        }
+
+        const neighbors = getNeighbors(currentNode, grid);
+        
+        for (const neighbor of neighbors) {
+            if (!neighbor.isVisited && !neighbor.isWall) {
+                neighbor.isVisited = true;
+                neighbor.previousNode = currentNode;
+                queue.push(neighbor);
+            }
+        }
+    }
+
+    return visitedNodesInOrder;
+}
+
+// Depth-First Search (DFS) algorithm
+function depthFirstSearch(startNode, targetNode, grid) {
+    const visitedNodesInOrder = [];
+    const stack = [startNode];
+
+    while (stack.length > 0) {
+        const currentNode = stack.pop();
+
+        if (currentNode.isWall || currentNode.isVisited) continue;
+
+        currentNode.isVisited = true;
+        visitedNodesInOrder.push(currentNode);
+
+        if (currentNode === targetNode) {
+            return visitedNodesInOrder;
+        }
+
+        const neighbors = getNeighbors(currentNode, grid);
+        
+        for (const neighbor of neighbors) {
+            if (!neighbor.isVisited && !neighbor.isWall) {
+                neighbor.previousNode = currentNode;
+                stack.push(neighbor);
+            }
+        }
+    }
+
+    return visitedNodesInOrder;
+}
+
 function getNodesInShortestPathOrder(targetNode) {
     const nodesInShortestPathOrder = [];
     let currentNode = targetNode;
@@ -196,8 +255,8 @@ function generateMaze(grid, startNode, targetNode) {
 }
 
 window.Algorithms = {
-    // breadthFirstSearch,
-    // depthFirstSearch,
+    breadthFirstSearch,
+    depthFirstSearch,
     uniformCostSearch,
     // aStar,
     // iterativeDependingDFS,
