@@ -277,14 +277,15 @@ class GridVisualizer {
         if (this.isRunning) return;
         // console.log(this.grid);
 
-        const algorithms = ['uniformCostSearch', 'idaStar'/*, 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch'*/];
+        const algorithms = ['uniformCostSearch', 'idaStar', 'breadthFirstSearch', 'depthFirstSearch'/*, 'aStar', 'iterativeDependingDFS', 'beamSearch'*/];
         const results = algorithms.map(algo => {
-            console.log(window.Algorithms[algo]);
+            // console.log(window.Algorithms[algo]);
             const result = window.GridVisualizerApp.measureAlgorithmPerformance(
                 window.Algorithms[algo], this.startNode, this.targetNode, this.grid
             );
-            console.log(result);
+            // console.log(result);
             const path = getNodesInShortestPathOrder(this.targetNode);
+            this.resetGrid(false);
             return (
                 {
                     pathFound: path.length > 0 ? "Yes" : "No",
