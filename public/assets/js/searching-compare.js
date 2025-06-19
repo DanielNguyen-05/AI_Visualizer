@@ -19,10 +19,10 @@ const algorithms = [
     'IDA*',
     'Breadth-First Search',
     'Depth-First Search',
-    // 'A* Search',
-    // 'Iterative Deepening DFS',
-    // 'Beam Search',
-    // 'Bi-directional Search'
+    'A* Search',
+    'Iterative Deepening DFS',
+    'Beam Search',
+    'Bi-directional Search'
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
