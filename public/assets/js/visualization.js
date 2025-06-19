@@ -282,13 +282,13 @@ class GridVisualizer {
 
         const algorithms = ['uniformCostSearch', 'idaStar', 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch', 'biDirectional'];
         const results = algorithms.map(algo => {
+            this.resetGrid(false);
             // console.log(window.Algorithms[algo]);
             const result = window.GridVisualizerApp.measureAlgorithmPerformance(
                 window.Algorithms[algo], this.startNode, this.targetNode, this.grid
             );
             // console.log(result);
             const path = getNodesInShortestPathOrder(this.targetNode);
-            this.resetGrid(false);
             return (
                 {
                     pathFound: path.length > 0 ? "Yes" : "No",
@@ -298,6 +298,7 @@ class GridVisualizer {
                 }
             );
         });
+        this.resetGrid(false);
 
         sessionStorage.setItem('compareResults-Searching', JSON.stringify(results));
         // console.log(sessionStorage.getItem('compareResults-Searching'));
