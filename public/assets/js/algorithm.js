@@ -422,6 +422,9 @@ function Backtracking(meetingNode, parentFromStart, parentFromEnd, visitedNodesI
 function getNodesInShortestPathOrder(targetNode) {
     const nodesInShortestPathOrder = [];
     let currentNode = targetNode;
+
+    if (currentNode.previousNode === null)
+        return nodesInShortestPathOrder;
     
     while (currentNode !== null) {
         nodesInShortestPathOrder.unshift(currentNode);

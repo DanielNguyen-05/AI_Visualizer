@@ -139,27 +139,27 @@ body {
 }
 
 .node.start {
-    background: #4CAF50;
+    background: #4b64c5;
     font-size: 14px;
 }
 
 .node.target {
-    background: #FF9800;
+    background: #ff9aa2;
     font-size: 14px;
 }
 
 .node.wall {
-    background: #333;
+    background: #293754;
     cursor: not-allowed;
 }
 
 .node.visited {
-    background: #E3F2FD;
+    background: #e5dfff;
     animation: visitedAnimation 0.5s ease-out;
 }
 
 .node.path {
-    background: #FFEB3B;
+    background: #ffdaa2;
     animation: pathAnimation 0.5s ease-out;
 }
 
@@ -171,14 +171,14 @@ body {
 @keyframes visitedAnimation {
     0% {
         transform: scale(0.3);
-        background-color: #64B5F6;
+        background-color: #977DFF;
     }
     50% {
-        background-color: #2196F3;
+        background-color: #7856ff;
     }
     100% {
         transform: scale(1);
-        background-color: #E3F2FD;
+        background-color: #e5dfff;
     }
 }
 
@@ -281,23 +281,23 @@ body {
 }
 
 .legend-color.start {
-    background: #4CAF50;
+    background: #4b64c5;
 }
 
 .legend-color.target {
-    background: #FF9800;
+    background: #ff9aa2;
 }
 
 .legend-color.wall {
-    background: #333;
+    background: #293754;
 }
 
 .legend-color.visited {
-    background: #E3F2FD;
+    background: #e5dfff;
 }
 
 .legend-color.path {
-    background: #FFEB3B;
+    background: #ffe0a2;
 }
 
 @media (max-width: 1200px) {
