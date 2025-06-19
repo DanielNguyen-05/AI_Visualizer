@@ -168,7 +168,7 @@ class GridVisualizer {
         visualizeBtn.disabled = true;
 
         const algoFn = window.Algorithms?.[this.algorithmName];
-        const visitedNodesInOrder = algoFn(this.startNode, this.targetNode, this.grid);
+        const visitedNodesInOrder = await algoFn(this.startNode, this.targetNode, this.grid);
         const nodesInShortestPathOrder = getNodesInShortestPathOrder(this.targetNode);
 
         await this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
@@ -257,7 +257,10 @@ class GridVisualizer {
         resetGrid(this.grid);
 
         const algoFn = window.Algorithms?.[this.algorithmName];
+        const startTime = performance.now();
         const visitedNodesInOrder = algoFn(this.startNode, this.targetNode, this.grid);
+        const endTime = performance.now();
+        const executionTime = endTime - startTime;
         const nodesInShortestPathOrder = getNodesInShortestPathOrder(this.targetNode);
         
         const html = `
@@ -265,7 +268,7 @@ class GridVisualizer {
             <tr><td>Path found</td><td>${nodesInShortestPathOrder.length > 1 ? 'Yes' : 'No'}</td></tr>
             <tr><td>Number of nodes explored</td><td>${visitedNodesInOrder.length}</td></tr>
             <tr><td>Total cost</td><td>${nodesInShortestPathOrder.length > 0 ? nodesInShortestPathOrder.length - 1 : '-'}</td></tr>
-            <tr><td>Processing time</td><td>100s</td></tr>
+            <tr><td>Processing time</td><td>${executionTime.toFixed(2)} ms</td></tr>
         </table>
         `;
 
@@ -277,7 +280,7 @@ class GridVisualizer {
         if (this.isRunning) return;
         // console.log(this.grid);
 
-        const algorithms = ['uniformCostSearch', 'idaStar'/*, 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch'*/];
+        const algorithms = ['uniformCostSearch', 'idaStar', 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch'];
         const results = algorithms.map(algo => {
             console.log(window.Algorithms[algo]);
             const result = window.GridVisualizerApp.measureAlgorithmPerformance(

@@ -17,12 +17,12 @@ let processingTimeData = []
 const algorithms = [
     'Uniform Cost Search',
     'IDA*',
-    // 'Breadth-First Search',
-    // 'Depth-First Search',
-    // 'A* Search',
-    // 'Iterative Deepening DFS',
-    // 'Beam Search',
-    // 'Bi-directional Search'
+    'Breadth-First Search',
+    'Depth-First Search',
+    'A* Search',
+    'Iterative Deepening DFS',
+    'Beam Search',
+    'Bi-directional Search'
 ];
 
 document.addEventListener("DOMContentLoaded", () => {

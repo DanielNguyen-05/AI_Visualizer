@@ -207,6 +207,218 @@ function depthFirstSearch(startNode, targetNode, grid) {
     return visitedNodesInOrder;
 }
 
+// A* Search algorithm
+function aStar(startNode, targetNode, grid) {
+    const visitedNodesInOrder = [];
+    const openSet = [startNode];
+    
+    startNode.gCost = 0;
+    startNode.hCost = heuristic(startNode, targetNode);
+    startNode.fCost = startNode.gCost + startNode.hCost;
+
+    while (openSet.length > 0) {
+        openSet.sort((a, b) => {
+            if (a.fCost === b.fCost) {
+                return a.hCost - b.hCost;
+            }
+            return a.fCost - b.fCost;
+        });
+        
+        const currentNode = openSet.shift();
+
+        if (currentNode.isWall) continue;
+        if (currentNode.isVisited) continue;
+
+        currentNode.isVisited = true;
+        visitedNodesInOrder.push(currentNode);
+
+        if (currentNode === targetNode) {
+            return visitedNodesInOrder;
+        }
+
+        const neighbors = getNeighbors(currentNode, grid);
+        
+        for (const neighbor of neighbors) {
+            if (neighbor.isWall || neighbor.isVisited) continue;
+
+            const tentativeGCost = currentNode.gCost + 1;
+
+            if (tentativeGCost < neighbor.gCost) {
+                neighbor.previousNode = currentNode;
+                neighbor.gCost = tentativeGCost;
+                neighbor.hCost = heuristic(neighbor, targetNode);
+                neighbor.fCost = neighbor.gCost + neighbor.hCost;
+
+                if (!openSet.includes(neighbor)) {
+                    openSet.push(neighbor);
+                }
+            }
+        }
+    }
+
+    return visitedNodesInOrder;
+}
+
+//Iterative Depending DFS
+function iterativeDependingDFS(startNode, targetNode, grid) {
+    const maxDepth = grid.length * grid[0].length;
+    for (let depth = 0; depth <= maxDepth; depth++) {
+        for (const row of grid) {
+            for (const node of row) {
+                node.isVisited = false;
+                node.previousNode = null;
+            }
+        }
+
+        const visitedNodesInOrder = [];
+        const found = depthLimitedSearch(startNode, targetNode, depth, grid, visitedNodesInOrder);
+        if (found) return visitedNodesInOrder;
+    }
+
+    return []; 
+}
+
+function depthLimitedSearch(node, targetNode, depth, grid, visitedNodesInOrder) {
+    if (depth < 0 || node.isWall || node.isVisited) return false;
+
+    node.isVisited = true;
+    visitedNodesInOrder.push(node);
+
+    if (node === targetNode) return true;
+
+    const neighbors = getNeighbors(node, grid);
+
+    for (const neighbor of neighbors) {
+        if (!neighbor.isVisited && !neighbor.isWall) {
+            neighbor.previousNode = node;
+            if (depthLimitedSearch(neighbor, targetNode, depth - 1, grid, visitedNodesInOrder)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+// Beam Search algorithm 
+function beamSearch(startNode, targetNode, grid, beamWidth = 3) {
+    const visitedNodesInOrder = [];
+    let currentLevel = [startNode];
+    
+    startNode.hCost = heuristic(startNode, targetNode);
+    startNode.isVisited = true;
+    visitedNodesInOrder.push(startNode);
+
+    while (currentLevel.length > 0) {
+        const nextLevel = [];
+
+        for (const currentNode of currentLevel) {
+            if (currentNode === targetNode) {
+                return visitedNodesInOrder;
+            }
+
+            const neighbors = getNeighbors(currentNode, grid);
+            
+            for (const neighbor of neighbors) {
+                if (!neighbor.isVisited && !neighbor.isWall) {
+                    neighbor.hCost = heuristic(neighbor, targetNode);
+                    neighbor.previousNode = currentNode;
+                    nextLevel.push(neighbor);
+                }
+            }
+        }
+
+        nextLevel.sort((a, b) => a.hCost - b.hCost);
+        currentLevel = nextLevel.slice(0, beamWidth);
+
+        for (const node of currentLevel) {
+            if (!node.isVisited) {
+                node.isVisited = true;
+                visitedNodesInOrder.push(node);
+            }
+        }
+    }
+
+    return visitedNodesInOrder;
+}
+
+//Bi-directional search
+function biDirectional(startNode, targetNode, grid) {
+    const visitedNodesInOrder = [];
+
+    const queueStart = [startNode];
+    const queueEnd = [targetNode];
+
+    const visitedFromStart = new Set();
+    const visitedFromEnd = new Set();
+
+    const parentFromStart = new Map();
+    const parentFromEnd = new Map();
+
+    visitedFromStart.add(startNode);
+    visitedFromEnd.add(targetNode);
+
+    while (queueStart.length && queueEnd.length) {
+        // Expand from Start
+        const currentFromStart = queueStart.shift();
+        currentFromStart.isVisited = true;
+        visitedNodesInOrder.push(currentFromStart);
+
+        const neighborsFromStart = getNeighbors(currentFromStart, grid);
+        for (const neighbor of neighborsFromStart) {
+            if (neighbor.isWall || visitedFromStart.has(neighbor)) continue;
+
+            parentFromStart.set(neighbor, currentFromStart);
+            visitedFromStart.add(neighbor);
+            queueStart.push(neighbor);
+
+            if (visitedFromEnd.has(neighbor)) {
+                return Backtracking(neighbor, parentFromStart, parentFromEnd, visitedNodesInOrder);
+            }
+        }
+
+        // Expand from End
+        const currentFromEnd = queueEnd.shift();
+        currentFromEnd.isVisited = true;
+        visitedNodesInOrder.push(currentFromEnd);
+
+        const neighborsFromEnd = getNeighbors(currentFromEnd, grid);
+        for (const neighbor of neighborsFromEnd) {
+            if (neighbor.isWall || visitedFromEnd.has(neighbor)) continue;
+
+            parentFromEnd.set(neighbor, currentFromEnd);
+            visitedFromEnd.add(neighbor);
+            queueEnd.push(neighbor);
+
+            if (visitedFromStart.has(neighbor)) {
+                return Backtracking(neighbor, parentFromStart, parentFromEnd, visitedNodesInOrder);
+            }
+        }
+    }
+
+    return visitedNodesInOrder;
+}
+
+//Backtracking to get the final path
+function Backtracking(meetingNode, parentFromStart, parentFromEnd, visitedNodesInOrder) {
+    let node = meetingNode;
+    while (parentFromStart.has(node)) {
+        const prev = parentFromStart.get(node);
+        node.previousNode = prev;
+        node = prev;
+    }
+
+    node = meetingNode;
+    while (parentFromEnd.has(node)) {
+        const prev = parentFromEnd.get(node);
+        prev.previousNode = node;  
+        node = prev;
+    }
+
+    return visitedNodesInOrder;
+}
+
+
 function getNodesInShortestPathOrder(targetNode) {
     const nodesInShortestPathOrder = [];
     let currentNode = targetNode;
@@ -258,9 +470,9 @@ window.Algorithms = {
     breadthFirstSearch,
     depthFirstSearch,
     uniformCostSearch,
-    // aStar,
-    // iterativeDependingDFS,
-    // beamSearch,
-    // biDirectional,
+    aStar,
+    iterativeDependingDFS,
+    beamSearch,
+    biDirectional,
     idaStar
 };
