@@ -280,7 +280,7 @@ class GridVisualizer {
         if (this.isRunning) return;
         // console.log(this.grid);
 
-        const algorithms = ['uniformCostSearch', 'idaStar', 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch'];
+        const algorithms = ['uniformCostSearch', 'idaStar', 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch', 'biDirectional'];
         const results = algorithms.map(algo => {
             // console.log(window.Algorithms[algo]);
             const result = window.GridVisualizerApp.measureAlgorithmPerformance(
