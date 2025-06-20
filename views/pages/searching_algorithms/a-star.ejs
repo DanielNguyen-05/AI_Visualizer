@@ -16,9 +16,8 @@
       <div class="algorithm-section">
         <h2>Algorithm idea</h2>
         <div class="description">
-          <p>IDA* (Iterative Deepening A*) combines the space efficiency of iterative deepening with the optimality of A*. It performs depth-first search with successively increased cost thresholds.</p>
-          <p>The algorithm uses an admissible heuristic function to guide the search and guarantees finding the optimal path while using minimal memory.</p>
-          <p>Bi-directional IDA* runs the search simultaneously from both start and goal nodes, potentially reducing the search space significantly.</p>
+          <p>An example of informed search is the A∗ search whose the search guidance is provided by a heuristic function, and it evaluates nodes using the cost function f(n) = g(n) + h(n). With h(n) is the heuristic function estimates the cheapest path from n to goal, g(n) is the actual cost from the start node to n node and f(n) is estimated total cost of the cheapest solution path going through n.</p>
+          <p>The algorithm will expand the nodes with the smallest value of f(n)</p>
         </div>
       </div>
     </div>

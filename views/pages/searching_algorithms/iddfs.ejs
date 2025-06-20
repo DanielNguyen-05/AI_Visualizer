@@ -16,9 +16,8 @@
       <div class="algorithm-section">
         <h2>Algorithm idea</h2>
         <div class="description">
-          <p>IDA* (Iterative Deepening A*) combines the space efficiency of iterative deepening with the optimality of A*. It performs depth-first search with successively increased cost thresholds.</p>
-          <p>The algorithm uses an admissible heuristic function to guide the search and guarantees finding the optimal path while using minimal memory.</p>
-          <p>Bi-directional IDA* runs the search simultaneously from both start and goal nodes, potentially reducing the search space significantly.</p>
+          <p>To combine the completeness and optimality of BFS with the space efficiency of DFS, Iterative Deepening Depth-First Search (IDDFS) was introduced.</p>
+          <p>To be more specific, IDDFS performs a series of depth-limited DFS traversals, incrementally increasing the allowed depth from 0 up to the depth where the goal is found.</p>
         </div>
       </div>
     </div>

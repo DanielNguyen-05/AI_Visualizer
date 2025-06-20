@@ -16,9 +16,9 @@
       <div class="algorithm-section">
         <h2>Algorithm idea</h2>
         <div class="description">
-          <p>IDA* (Iterative Deepening A*) combines the space efficiency of iterative deepening with the optimality of A*. It performs depth-first search with successively increased cost thresholds.</p>
-          <p>The algorithm uses an admissible heuristic function to guide the search and guarantees finding the optimal path while using minimal memory.</p>
-          <p>Bi-directional IDA* runs the search simultaneously from both start and goal nodes, potentially reducing the search space significantly.</p>
+          <p>In large search spaces, especially those used in natural language processing, robotics, or game playing, it is often impractical to perform exhaustive search (like BFS or A*) due to time and memory constraints.</p>
+          <p>Beam Search was introduced as a memory-efficient approximation of Best-First Search. It sacrifices completeness and optimality in exchange for speed and reduced resource usage, making it suitable for real-time systems or applications requiring fast decision.</p>
+          <p>Unlike using heuristic function with additional g(n) denotes the actual cost from the start node to n node as A∗ search, Beam Search is a varation of Best-First Search keeping the top k most promising nodes at each level of the search tree, where k is called the beam width</p>
         </div>
       </div>
     </div>

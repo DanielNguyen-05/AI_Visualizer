@@ -282,8 +282,8 @@ class GridVisualizer {
 
         const algorithms = ['uniformCostSearch', 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch', 'biDirectional', 'idaStar'];
         const results = algorithms.map(algo => {
-            // localStorage.setItem('currentAlgo', algo);
-            // localStorage.setItem('currentTime', new Date().toISOString());
+            localStorage.setItem('currentAlgo', algo);
+            localStorage.setItem('currentTime', new Date().toISOString());
             this.resetGrid(false);
             // console.log(window.Algorithms[algo]);
             const result = window.GridVisualizerApp.measureAlgorithmPerformance(

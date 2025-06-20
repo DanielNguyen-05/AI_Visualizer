@@ -16,9 +16,8 @@
       <div class="algorithm-section">
         <h2>Algorithm idea</h2>
         <div class="description">
-          <p>IDA* (Iterative Deepening A*) combines the space efficiency of iterative deepening with the optimality of A*. It performs depth-first search with successively increased cost thresholds.</p>
-          <p>The algorithm uses an admissible heuristic function to guide the search and guarantees finding the optimal path while using minimal memory.</p>
-          <p>Bi-directional IDA* runs the search simultaneously from both start and goal nodes, potentially reducing the search space significantly.</p>
+          <p>Many classical search algorithms such as BFS and DFS search from the initial state toward the goal. However, this approach can be inefficient for large search spaces, especially when the branching factor is high or the solution depth is large.</p>
+          <p>To improve performance, Bidirectional Search was introduced as an effective strategy thatsearches simultaneously from both the initial state and the goal state. The idea is to reduce the search depth and total number of nodes expanded by meeting in the middle.</p>
         </div>
       </div>
     </div>
