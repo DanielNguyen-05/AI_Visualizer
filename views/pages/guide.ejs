@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Algorithm Visualizer Guide</title>
+  <link rel="stylesheet" href="guide.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>WHAT IS THIS?</h1>
+    <p>This is an <strong>Algorithm Visualization Tool</strong> that helps you learn and explore how different algorithms work by visualizing them in action.</p>
+    <p>Use it to understand algorithm behavior step-by-step — whether it's for <strong>pathfinding</strong>, <strong>sorting</strong>, <strong>graph traversal</strong>, or other algorithmic problems.</p>
+    <a href="/searching" class="start-button">Press Enter on the Homepage to START</a>
+
+    <div class="section">
+      <h2>QUICK VIDEO GUIDE</h2>
+      <div class="video-hover">
+        <video autoplay loop muted playsinline>
+                <source src="/assets/video/meo.mp4" type="video/mp4">
+            </video>
+      </div>
+      <p style="opacity: 0.6; font-size: 1rem; margin-top: 0.5rem;">
+        This short video walks you through how to use the visualizer in less than 2 minutes.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>HOW TO USE THIS TOOL</h2>
+      <ul class="guide-list">
+        <li>
+          <div class="video-hover">
+            <img src="/assets/img/selection_icon.png" alt="Step Icon" class="icon-sm" />
+            <video class="hover-video" muted loop preload="metadata">
+              <source src="/assets/video/meo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <strong>Choose a Category:</strong> Select from available algorithm groups (e.g., Searching, Sorting, Graph, etc.).
+        </li>
+        <li>
+            
+          <div class="video-hover">
+            <img src="/assets/img/selection_icon.png" alt="Step Icon" class="icon-sm" />
+            <video class="hover-video" muted loop preload="metadata">
+              <source src="/assets/video/meo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <strong>Pick an Algorithm:</strong> Choose a specific algorithm from the group to visualize.
+        </li>
+        <li>
+          <div class="video-hover">
+            <img src="/assets/img/setup_icon.png" alt="Step Icon" class="icon-sm" />
+            <video class="hover-video" muted loop preload="metadata">
+              <source src="/assets/video/meo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <strong>Set Up the Problem:</strong>
+          <ul>
+            <li>In Searching: place start/end points, walls on a grid.</li>
+          </ul>
+        </li>
+        <li>
+          <div class="video-hover">
+            <img src="/assets/img/selection_icon.png" alt="Step Icon" class="icon-sm" />
+            <video class="hover-video" muted loop preload="metadata">
+              <source src="/assets/video/meo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <strong>Run and Visualize:</strong> Click Play to start. You can Pause, Reset, or adjust parameters anytime.
+        </li>
+        <li>
+          <div class="video-hover">
+            <img src="/assets/img/selection_icon.png" alt="Step Icon" class="icon-sm" />
+            <video class="hover-video" muted loop preload="metadata">
+              <source src="/assets/video/meo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <strong>View the Result:</strong> See key outcomes and metrics like time, steps, comparisons, or path cost depending on the algorithm type.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>TIPS FOR BEST EXPERIENCE</h2>
+      <div class="tip">
+        • Best viewed on <strong>desktop</strong> for full features.<br>
+        • <strong>Hover</strong> over buttons for tooltips.<br>
+        • Use the <strong>sidebar</strong> to switch between categories and algorithms.<br>
+        • Experiment with inputs to compare results!
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>NEED HELP?</h2>
+      <p>Click the <strong>❓ icon</strong> at the top-right corner to view FAQs, definitions, or troubleshooting tips.</p>
+    </div>
+  </div>
+  <script>
+  document.querySelectorAll('.video-hover').forEach(wrapper => {
+    const video = wrapper.querySelector('video');
+    wrapper.addEventListener('mouseenter', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+    wrapper.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>
+
