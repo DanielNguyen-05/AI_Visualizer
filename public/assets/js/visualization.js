@@ -265,7 +265,7 @@ class GridVisualizer {
         
         const html = `
         <table style="width:100%;height:30vh;font-size:18px;">
-            <tr><td>Path found</td><td>${nodesInShortestPathOrder.length > 1 ? 'Yes' : 'No'}</td></tr>
+            <tr><td>Path found</td><td>${nodesInShortestPathOrder.length > 0 ? 'Yes' : 'No'}</td></tr>
             <tr><td>Number of nodes explored</td><td>${visitedNodesInOrder.length}</td></tr>
             <tr><td>Total cost</td><td>${nodesInShortestPathOrder.length > 0 ? nodesInShortestPathOrder.length - 1 : '-'}</td></tr>
             <tr><td>Processing time</td><td>${executionTime.toFixed(2)} ms</td></tr>
@@ -280,8 +280,10 @@ class GridVisualizer {
         if (this.isRunning) return;
         // console.log(this.grid);
 
-        const algorithms = ['uniformCostSearch', 'idaStar', 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch', 'biDirectional'];
+        const algorithms = ['uniformCostSearch', 'breadthFirstSearch', 'depthFirstSearch', 'aStar', 'iterativeDependingDFS', 'beamSearch', 'biDirectional', 'idaStar'];
         const results = algorithms.map(algo => {
+            // localStorage.setItem('currentAlgo', algo);
+            // localStorage.setItem('currentTime', new Date().toISOString());
             this.resetGrid(false);
             // console.log(window.Algorithms[algo]);
             const result = window.GridVisualizerApp.measureAlgorithmPerformance(
