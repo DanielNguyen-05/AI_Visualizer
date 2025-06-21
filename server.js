@@ -43,6 +43,13 @@ app.get("/algorithms-detail", (req, res) => {
   res.render("pages/algorithms-detail");
 });
 
+app.use((req, res, next) => {
+  res.status(404).render('pages/404', {
+        pageTitle: 'Error 404',
+        pageCSS: '/assets/css/404.css',
+    });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
