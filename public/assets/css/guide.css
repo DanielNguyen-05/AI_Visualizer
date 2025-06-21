@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #01144E, #977DFF);
+  line-height: 1.6;
+  padding: 2rem;
+  color: rgb(255, 235, 245);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1, h2 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2rem;
+  color:rgb(255, 217, 235);
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.start-button {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.75rem 2rem;
+  background-color:#977DFF;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  color: rgb(255, 235, 245);
+}
+
+.start-button:hover {
+  animation: lightItUp 1s infinite;
+}
+
+@keyframes lightItUp {
+  0%, 100% {
+    opacity: 1;
+    color:#dfd9f8;
+    box-shadow: 0 0 5px #fff, 0 0 10px #977DFF, 0 0 15px #977DFF;
+  }
+}
+
+.section {
+  margin-top: 3rem;
+  border-left: 4px solid #bb86fc;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.tip {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+ul li {
+  margin-bottom: 1.5rem;
+}
+
+li {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+.video-hover {
+  display: inline-block;
+  position: relative;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.icon-sm {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.icon-lg {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 1rem 0;
+  border: 2px solid #aaa;
+}
+
+.hover-video,
+.hover-video-lg {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  width: 500px;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.hover-video-lg {
+  top: -320px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-hover:hover .hover-video,
+.video-hover:hover .hover-video-lg {
+  display: block;
+}
