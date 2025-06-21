@@ -19,3 +19,10 @@ exports.getAlgorithmPage = (req, res, next) => {
         pageJS: '/assets/js/bar.js',
     });
 };
+
+exports.getGuidePage = (req, res, next) => {
+    res.render("pages/guide", {
+        pageTitle: 'Guide Page',
+        pageCSS: '/assets/css/guide.css',
+    });
+};

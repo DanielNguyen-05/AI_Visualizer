@@ -44,7 +44,7 @@ document.querySelector('.home-icon').addEventListener('click', function() {
 });
 
 document.querySelector('.info-icon').addEventListener('click', function() {
-    window.location.href = '/about';
+    window.location.href = '/guide';
 });
 
 document.querySelector('.btn-play').addEventListener('click', function() {
