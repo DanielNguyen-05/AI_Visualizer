@@ -26,34 +26,16 @@ document.getElementById('searching-link').addEventListener('click', function(e) 
     sublist.style.display = (sublist.style.display === 'block') ? 'none' : 'block';
 });
 
-// document.querySelectorAll('.sidebar-sublink').forEach(function(link) {
-//     link.addEventListener('click', function(e) {
-//         e.preventDefault();
-//         // Tìm phần tử cha (li) rồi tìm ul.sidebar-sublist bên trong nó
-//         const sublist = this.parentElement.querySelector('.sidebar-sublist');
-        
-//         if (sublist) {
-//             sublist.style.display = (sublist.style.display === 'block') ? 'none' : 'block';
-//             console.log('Toggle sublist:', sublist.style.display);
-//         }
-//     });
-// });
-
-document.querySelector('.home-icon').addEventListener('click', function() {
-    window.location.href = '/';
-});
-
-document.querySelector('.info-icon').addEventListener('click', function() {
-    window.location.href = '/guide';
-});
-
-document.querySelector('.btn-play').addEventListener('click', function() {
-    window.location.href = '/searching/menu';
-});
-
 function closeAllListsInSidebar() {
     let sublists = document.querySelectorAll('.sidebar-sublist');
     sublists.forEach(function(item) {
         item.style.display = 'none';
     });
 }
+
+document.querySelector('.backMenu')?.addEventListener('click', function(e) {
+    if (this.getAttribute('href').trim() === '') {
+        e.preventDefault();
+        window.history.back();
+    }
+})

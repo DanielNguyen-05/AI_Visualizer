@@ -26,7 +26,6 @@ const algorithms = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(sessionStorage.getItem('compareResults-Searching'));
     const results = JSON.parse(sessionStorage.getItem('compareResults-Searching'));
     
     if (!results) {
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log('Results loaded:', results);
-    console.log(typeof results.map(r => r.nodesExplored)[0])
 
     const chartConfigs = [
         {
