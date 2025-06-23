@@ -75,6 +75,11 @@ body {
     animation-fill-mode: both;
 }
 
+.visualizer-video img {
+    width: 500px;
+    height: auto;
+}
+
 .video-container {
     width: 100%; 
     height: auto;

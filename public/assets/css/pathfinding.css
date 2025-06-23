@@ -145,12 +145,12 @@ main {
 }
 
 .node.start {
-    background: #4b64c5;
+    background: #ff9aa2;
     font-size: 14px;
 }
 
 .node.target {
-    background: #ff9aa2;
+    background: #4b64c5;
     font-size: 14px;
 }
 
@@ -287,11 +287,11 @@ main {
 }
 
 .legend-color.start {
-    background: #4b64c5;
+    background: #ff9aa2;
 }
 
 .legend-color.target {
-    background: #ff9aa2;
+    background: #4b64c5;
 }
 
 .legend-color.wall {
