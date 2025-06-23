@@ -1,4 +1,72 @@
-1. tải yarn về máy
-2. `yarn install` để cài hết thư viện trong file package.json về
-3. Muốn chạy từ gõ `yarn start` và bật web theo linh `http://localhost:4000/`
-4. `ctrl + c` để dừng chạy
+# AI Visualizer
+
+AI Visualizer is a web-based application designed to provide an intuitive platform for visualizing and understanding various AI and data processing techniques. Built with a robust backend and a user-friendly interface, this project leverages modern web technologies to deliver insightful experiences.
+
+## Features
+
+* **Algorithm Visualization**: Visualize pathfinding, search algorithms, and more.
+* **User-Friendly Interface**: Easy-to-navigate interface for efficient interaction.
+* **Custom Configurations**: Adaptable to various use cases with adjustable settings.
+* **Real-Time Data**: Offers dynamic and real-time feedback.
+
+## Installation
+
+Follow these steps to set up and run the project locally:
+
+### Prerequisites
+
+1. Ensure you have [Node.js](https://nodejs.org/) installed.
+2. Install [Yarn](https://yarnpkg.com/) globally:
+
+   ```bash
+   npm install -g yarn
+   ```
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository_url>
+   cd AI_Visualizer
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   yarn install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   yarn start
+   ```
+
+4. Open your browser and navigate to:
+
+   ```
+   http://localhost:4000/
+   ```
+
+5. To stop the server, use:
+
+   ```bash
+   ctrl + c
+   ```
+
+## Project Structure
+
+* `server.js`: Main server entry point.
+* `config/`: Configuration files.
+* `models/`: Database models.
+* `controllers/`: Backend logic and controllers.
+* `views/`: Front-end templates.
+* `routes/`: Application routing.
+* `public/`: Static assets.
+
+## Deployment
+
+This project is configured for deployment on platforms like Vercel. Ensure the `vercel.json` file is correctly set up for your deployment needs.
+
+
