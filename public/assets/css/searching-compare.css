@@ -14,7 +14,7 @@ body {
 .grid-chart {
     margin: 0 auto;
     padding: 2rem;
-    max-width: 85vw;
+    max-width: 60vw;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
