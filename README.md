@@ -33,7 +33,7 @@ This project addresses the need for accessible AI education and algorithm compre
 
 1. **Clone the Repository**
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/DanielNguyen-05/AI_Visualizer.git
    cd AI_Visualizer
    ```
 
