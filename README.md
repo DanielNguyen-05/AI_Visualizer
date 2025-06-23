@@ -2,6 +2,8 @@
 
 AI Visualizer is a comprehensive web-based platform that provides interactive visualization and analysis tools for artificial intelligence algorithms and data processing techniques. The application combines a robust Node.js backend with an intuitive frontend interface, enabling users to explore and understand complex AI concepts through dynamic visual representations.
 
+This is the link to our website: [AI Visualizer Website](https://ai-visualizer-gamma.vercel.app/)
+
 ## Overview
 
 This project addresses the need for accessible AI education and algorithm comprehension by offering real-time visualizations of various computational processes. Whether you're a student learning fundamental algorithms or a professional analyzing complex data patterns, AI Visualizer provides the tools necessary for effective understanding and presentation.
@@ -27,7 +29,7 @@ This project addresses the need for accessible AI education and algorithm compre
 - **Browser**: Modern web browser with JavaScript enabled
 - **Operating System**: Cross-platform compatibility (Windows, macOS, Linux)
 
-### Installation
+### Installation for running website local
 
 1. **Clone the Repository**
    ```bash
@@ -39,28 +41,17 @@ This project addresses the need for accessible AI education and algorithm compre
    ```bash
    yarn install
    ```
-   *Alternative with npm:*
-   ```bash
-   npm install
-   ```
 
-3. **Configure Environment**
-   ```bash
-   # Copy environment template (if applicable)
-   cp .env.example .env
-   # Edit configuration as needed
-   ```
-
-4. **Start Development Server**
+3. **Start Development Server**
    ```bash
    yarn start
    ```
 
-5. **Access Application**
+4. **Access Application**
    
    Open your web browser and navigate to: `http://localhost:4000`
 
-6. **Stop Server**
+5. **Stop Server**
    
    Press `Ctrl + C` in the terminal to terminate the development server.
 
