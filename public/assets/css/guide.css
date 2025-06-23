@@ -136,3 +136,7 @@ li {
 .video-hover:hover .hover-video-lg {
   display: block;
 }
+
+.footer {
+  display: none;
+}

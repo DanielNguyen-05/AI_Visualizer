@@ -1,3 +1,8 @@
+main {
+    min-height: 75vh;
+    margin: 0;
+}
+
 /* -------------------------NAVBAR------------------------- */
 .navbar {
     display: flex;
